@@ -1,0 +1,61 @@
+package com.testpackage;   
+//******************************************************************************
+//
+// Copyright (c) 2016 Microsoft Corporation. All rights reserved.
+//
+// This code is licensed under the MIT License (MIT).
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+//******************************************************************************
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.sikuli.script.FindFailed;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+import java.net.MalformedURLException;
+import java.net.URL;
+import io.appium.java_client.windows.WindowsDriver;
+
+public class skypetest {
+
+    private static WindowsDriver CalculatorSession = null;
+    private static WebElement CalculatorResult = null;
+
+    @BeforeClass
+    public static void main(String[] args) throws  MalformedURLException, InterruptedException, FindFailed   {
+        try {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("app", "C:\\Program Files (x86)\\Microsoft\\Skype for Desktop\\Skype.exe");
+            CalculatorSession = new WindowsDriver(new URL("http://127.0.0.1:4723"), capabilities);
+            
+            
+            CalculatorSession.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+            //CalculatorResult = CalculatorSession.findElementByAccessibilityId("CalculatorResults");
+            Assert.assertNotNull(CalculatorResult);
+            
+            Object _session;
+		
+        }catch(Exception e){
+            e.printStackTrace();
+        } finally {
+        }
+    }
+
+
+
+}

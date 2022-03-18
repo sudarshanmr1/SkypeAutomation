@@ -1,0 +1,76 @@
+package test1;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.winium.DesktopOptions;
+import org.openqa.selenium.winium.WiniumDriver;
+import org.openqa.selenium.winium.WiniumDriverService;
+import org.sikuli.script.*;
+
+
+public class testclass1 {
+
+	public static void main(String[] args) throws  MalformedURLException, InterruptedException, FindFailed  {
+		
+		try {
+		// TODO Auto-generated method stub
+
+		DesktopOptions options = new DesktopOptions();
+             		
+		options.setApplicationPath("C:\\Program Files (x86)\\Microsoft\\Skype for Desktop\\Skype.exe");
+		
+				
+		WiniumDriver driver = new WiniumDriver(new URL("http://localhost:9999"),options);
+		
+		
+		Thread.sleep(6000);
+		
+		Screen s = new Screen();
+		
+		String inputFilePath = "C:\\Users\\Admin\\Desktop\\pattern.sikuli\\";
+		
+		
+		Pattern openButton = new Pattern(inputFilePath + "1647527115761.png");
+		Pattern openButton1 = new Pattern(inputFilePath + "1647527369146.png");
+		Pattern openButton2 = new Pattern(inputFilePath + "1647527707905.png");
+		Pattern openButton3 = new Pattern(inputFilePath + "1647528053928.png");
+		
+		Thread.sleep(100);
+		
+		s.find(openButton);
+		
+		Thread.sleep(100);
+		 	 
+		 s.click(openButton);
+		 
+		 Thread.sleep(10000);
+		
+		 s.find(openButton1);
+		 s.click(openButton1);
+		//driver.findElement(By.name("Audio Call")).click();
+		 Thread.sleep(8000);
+		 s.find(openButton2);
+		 s.click(openButton2);
+		 s.type(openButton2,"211");
+		 Thread.sleep(6000);
+		 s.find(openButton3);
+		 s.click(openButton3);
+		 s.type(openButton3,"8168099136");
+		
+		//driver.findElementByName("Enter numbers using the dial pad").click();
+		
+	
+		
+		
+		System.out.println("done");
+	}catch (NumberFormatException e) {
+		System.out.println(
+                "NumberFormatException occurred");
+	    }
+	}
+}
+
+

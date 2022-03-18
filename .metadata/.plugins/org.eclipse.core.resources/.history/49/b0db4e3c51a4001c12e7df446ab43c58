@@ -1,0 +1,45 @@
+package com.testpackage;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.windows.WindowsDriver;
+import net.jodah.failsafe.internal.util.Assert;
+
+public class skypetest {
+
+	
+	
+	public static void main(String[] args) throws MalformedURLException {
+		
+		WindowsDriver driver = null;
+	
+		DesiredCapabilities cap= new DesiredCapabilities();
+		
+		//cap.setCapability("app", "C:\\Program Files (x86)\\Microsoft\\Skype for Desktop\\Skype.exe");
+		cap.setCapability("app", "C:\\Windows\\System32\\notepad.exe");
+		//cap.setCapability("appTopLevelWindow", "proc");
+		
+		
+		cap.setCapability("platformName", "windows");
+		cap.setCapability("deviceName", "WindowsPC");
+	
+		
+		 //driver = new WindowsDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+		 
+	
+		 driver = new WindowsDriver(new URL("http://127.0.0.1:4723"), cap);
+
+		 
+		 driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		
+	}
+	
+
+	
+}
